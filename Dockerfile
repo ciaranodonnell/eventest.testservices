@@ -9,7 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
 COPY ["Eventually-Test-App/Eventually-Test-App.csproj", "eventually/"]
 RUN dotnet restore "eventually/Eventually-Test-App.csproj"
-COPY . .
+COPY Eventually-Test-App /src/eventually
 WORKDIR "/src/eventually"
 RUN dotnet build "Eventually-Test-App.csproj" -c Release -o /app/build
 
